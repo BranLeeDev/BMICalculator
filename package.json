@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.30",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.5"
+  },
+  "name": "bmi-calculator",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "type": "module",
+  "version": "0.0.0"
+}
