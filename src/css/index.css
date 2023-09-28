@@ -27,7 +27,7 @@
     border-style: solid;
     cursor: pointer;
     appearance: none;
-    transition: all 0.2s linear;
+    transition: all 0.3s linear;
   }
   .radio-button:checked {
     border-width: 0.5rem;

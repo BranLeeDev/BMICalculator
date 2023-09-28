@@ -20,7 +20,7 @@
   </head>
   <body>
     <div
-      class="flex h-max min-h-[20rem] w-full min-w-[20rem] flex-col items-center gap-6 pb-24 pt-8"
+      class="flex h-max min-h-[20rem] w-full min-w-[20rem] flex-col items-center gap-6 overflow-x-hidden pb-24 pt-8"
     >
       <header class="flex w-full justify-center">
         <h1 class="hidden">BMI Calculator</h1>
@@ -50,7 +50,7 @@
           >
             <article class="flex flex-col gap-6">
               <h3 class="text-2xl font-semibold text-second">Enter your details below</h3>
-              <form class="flex flex-col gap-6" autocomplete="off">
+              <form class="relative flex flex-col gap-6" autocomplete="off">
                 <div class="flex justify-between">
                   <div class="flex flex-row-reverse items-center gap-4">
                     <label for="Metric">Metric</label>
@@ -74,34 +74,114 @@
                     />
                   </div>
                 </div>
-                <div class="flex flex-col gap-2">
-                  <label class="text-sm text-third" for="height">Height</label>
-                  <div class="relative flex items-center">
-                    <input
-                      class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:outline-2 focus:outline-first"
-                      placeholder="0"
-                      type="text"
-                      id="height"
-                      name="height"
-                    />
-                    <label class="absolute right-6 text-2xl font-semibold text-first" for="height"
-                      >cm</label
-                    >
+                <div
+                  id="form-metric"
+                  class="flex flex-col gap-6 transition-all duration-300 ease-in-out"
+                >
+                  <div class="flex flex-col gap-2">
+                    <label class="text-sm text-third" for="height">Height</label>
+                    <div class="relative flex items-center">
+                      <input
+                        class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                        placeholder="0"
+                        maxlength="3"
+                        type="text"
+                        id="height"
+                        name="height"
+                      />
+                      <label class="absolute right-6 text-2xl font-semibold text-first" for="height"
+                        >cm</label
+                      >
+                    </div>
+                  </div>
+                  <div class="relative flex flex-col gap-2">
+                    <label class="text-sm text-third" for="weight">Weight</label>
+                    <div class="flex items-center">
+                      <input
+                        class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second outline-none placeholder:text-2xl placeholder:text-input-number focus:border-first"
+                        type="text"
+                        maxlength="3"
+                        placeholder="0"
+                        id="weight"
+                        name="weight"
+                      />
+                      <label class="absolute right-6 text-2xl font-semibold text-first" for="weight"
+                        >kg</label
+                      >
+                    </div>
                   </div>
                 </div>
-                <div class="relative flex flex-col gap-2">
-                  <label class="text-sm text-third" for="weight">Weight</label>
-                  <div class="flex items-center">
-                    <input
-                      class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:outline-2 focus:outline-first"
-                      type="text"
-                      placeholder="0"
-                      id="weight"
-                      name="weight"
-                    />
-                    <label class="absolute right-6 text-2xl font-semibold text-first" for="weight"
-                      >kg</label
-                    >
+                <div
+                  id="form-imperial"
+                  class="absolute top-14 flex translate-x-full flex-col gap-6 opacity-0 transition-all duration-300 ease-in-out"
+                >
+                  <div class="flex flex-col gap-2">
+                    <label class="text-sm text-third" for="feet">Height</label>
+                    <div class="grid grid-cols-2 gap-x-4">
+                      <div class="relative flex items-center">
+                        <input
+                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                          placeholder="0"
+                          maxlength="2"
+                          type="text"
+                          id="feet"
+                          name="feet"
+                        />
+                        <label class="absolute right-6 text-2xl font-semibold text-first" for="feet"
+                          >ft</label
+                        >
+                      </div>
+                      <div class="relative flex items-center">
+                        <input
+                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                          placeholder="0"
+                          maxlength="2"
+                          type="text"
+                          id="inches"
+                          name="inches"
+                        />
+                        <label
+                          class="absolute right-6 text-2xl font-semibold text-first"
+                          for="inches"
+                          >in</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="relative flex flex-col gap-2">
+                    <label class="text-sm text-third" for="stones">Weight</label>
+                    <div class="grid grid-cols-2 gap-x-4">
+                      <div class="relative flex items-center">
+                        <input
+                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                          placeholder="0"
+                          maxlength="2"
+                          type="text"
+                          id="stones"
+                          name="stones"
+                        />
+                        <label
+                          class="absolute right-6 text-2xl font-semibold text-first"
+                          for="stones"
+                          >st</label
+                        >
+                      </div>
+                      <div class="relative flex items-center">
+                        <input
+                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                          placeholder="0"
+                          maxlength="2"
+                          type="text"
+                          id="pounds"
+                          name="pounds"
+                        />
+                        <label
+                          class="absolute right-6 text-2xl font-semibold text-first"
+                          for="pounds"
+                          >lbs</label
+                        >
+                      </div>
+                    </div>
                   </div>
                 </div>
               </form>
