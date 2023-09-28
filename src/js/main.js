@@ -12,6 +12,7 @@ function validateInputContent() {
   function inputTypeText(input) {
     input.addEventListener("input", (e) => {
       const currentValue = e.target.value;
+
       if (!isNumber(currentValue)) {
         const previosValue = currentValue.at(-2);
         if (!previosValue) {
@@ -25,6 +26,12 @@ function validateInputContent() {
           const index = result.findIndex((item) => item === lastValue);
           e.target.value = result.splice(0, index).join("");
         }
+        return;
+      }
+
+      if (currentValue.split("").length >= 4) {
+        const result = e.target.value.split("");
+        e.target.value = result.slice(0, -1).join("");
       }
     });
   }
