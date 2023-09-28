@@ -7,3 +7,44 @@
     font-family: "Inter", sans-serif;
   }
 }
+
+@layer components {
+  .first-linear-gradient {
+    width: 100%;
+    height: 68%;
+    background-image: linear-gradient(290deg, #d6e6fe 0%, rgba(214, 252, 254, 0) 100%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    border-radius: 0rem 0rem 2.1875rem 2.1875rem;
+  }
+
+  .radio-button {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border-width: 0.125rem;
+    border-style: solid;
+    cursor: pointer;
+    appearance: none;
+    transition: all 0.2s linear;
+  }
+  .radio-button:checked {
+    border-width: 0.5rem;
+    border-color: #e1e7fe;
+  }
+  .radio-button:checked:hover {
+    border-color: #e1e7fe;
+  }
+
+  .background-result-bmi {
+    background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+  }
+
+  .card-result-means {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(min-content, max-content));
+    row-gap: 1.5rem;
+  }
+}
