@@ -7,28 +7,29 @@ const resultBMI = document.getElementById("result-bmi");
 const formMetric = document.getElementById("form-metric");
 const formImperial = document.getElementById("form-imperial");
 
+let whatSystemNow = "Metric";
+
 // check if it is a number
 const isNumber = (value) => {
   return valuesAllowed.some((number) => number.includes(value.at(-1)));
 };
 
 function validateInputContent() {
-  inputsText.forEach(inputTypeText);
-
-  function inputTypeText(input) {
+  inputsText.forEach((input) => {
     input.addEventListener("input", (e) => {
-      const currentValue = e.target.value;
+      const currentValue = e.currentTarget.value;
 
-      // Resets both inputs has if it has value
       if (!inputsText[0].value && !inputsText[1].value) {
         bmiResetResult();
-        return;
       }
 
       standardInputTextContent(currentValue, 4, e);
 
-      // Verify that both input has a value
-      if (inputsText[0].value && inputsText[1].value) {
+      if (
+        inputsText[0].value &&
+        inputsText[1].value &&
+        whatSystemNow === "Metric"
+      ) {
         const measures = {
           kg: +inputsText[1].value,
           cm: +inputsText[0].value,
@@ -45,10 +46,92 @@ function validateInputContent() {
         printResultBmi(BMI);
 
         messageForEveryBmiResult(BMI, weightRange);
+      }
 
-        return;
+      if (
+        inputsText[2].value &&
+        inputsText[3].value &&
+        inputsText[4].value &&
+        inputsText[5].value &&
+        whatSystemNow === "Imperial"
+      ) {
+        const measures = {
+          ft: +inputsText[2].value,
+          in: +inputsText[3].value,
+          st: +inputsText[4].value,
+          lbs: +inputsText[5].value,
+        };
+        const BMI = bmiCalculator("Imperial", measures);
+        const weightRange = calculateWeightRange("Imperial", measures);
+        if (
+          measures.in >= 40 ||
+          measures.st >= 90 ||
+          measures.lbs >= 250 ||
+          measures.st <= 3
+        )
+          return;
+
+        printResultBmi(BMI);
+
+        messageForEveryBmiResult(BMI, weightRange);
       }
     });
+  });
+}
+
+function bmiResultController(system) {
+  if (system === "Metric") {
+    if (inputsText[0].value && inputsText[1].value) {
+      const measures = {
+        kg: +inputsText[1].value,
+        cm: +inputsText[0].value,
+      };
+      const BMI = bmiCalculator("Metric", measures);
+      const weightRange = calculateWeightRange("Metric", measures);
+      const isValidMeasures =
+        measures.cm >= 280 ||
+        measures.kg >= 600 ||
+        measures.cm <= 50 ||
+        measures.kg <= 20;
+      if (isValidMeasures) return;
+
+      printResultBmi(BMI);
+
+      messageForEveryBmiResult(BMI, weightRange);
+    } else {
+      bmiResetResult();
+    }
+  }
+
+  if (system === "Imperial") {
+    if (
+      inputsText[2].value &&
+      inputsText[3].value &&
+      inputsText[4].value &&
+      inputsText[5].value
+    ) {
+      const measures = {
+        ft: +inputsText[2].value,
+        in: +inputsText[3].value,
+        st: +inputsText[4].value,
+        lbs: +inputsText[5].value,
+      };
+      const BMI = bmiCalculator("Imperial", measures);
+      const weightRange = calculateWeightRange("Imperial", measures);
+      if (
+        measures.in >= 40 ||
+        measures.st >= 90 ||
+        measures.lbs >= 250 ||
+        measures.st <= 3
+      )
+        return;
+
+      printResultBmi(BMI);
+
+      messageForEveryBmiResult(BMI, weightRange);
+    } else {
+      bmiResetResult();
+    }
   }
 }
 
@@ -67,22 +150,36 @@ function standardInputTextContent(currentValue, lengthInput, event) {
 
     // Check if it the previos value is
     if (!previosValue) {
-      event.target.value = "";
+      event.currentTarget.value = "";
       return;
     }
 
     const lastValue = currentValue.at(-1);
     if (!isNumber(lastValue)) {
-      const result = event.target.value.split("");
+      const result = event.currentTarget.value.split("");
       const index = result.findIndex((item) => item === lastValue);
-      event.target.value = result.splice(0, index).join("");
+      event.currentTarget.value = result.splice(0, index).join("");
     }
     return;
   }
 
+  minLengthCustomizer(event, 2, 2);
+
+  minLengthCustomizer(event, 4, 3);
+
+  minLengthCustomizer(event, 3, 3);
+
   if (currentValue.split("").length >= lengthInput) {
-    const result = e.target.value.split("");
-    event.target.value = result.slice(0, -1).join("");
+    const result = event.currentTarget.value.split("");
+    event.currentTarget.value = result.slice(0, -1).join("");
+    return;
+  }
+}
+
+function minLengthCustomizer(event, index, lengthInput) {
+  if (inputsText[index].value.split("").length >= lengthInput) {
+    const result = event.currentTarget.value.split("");
+    event.currentTarget.value = result.slice(0, -1).join("");
     return;
   }
 }
@@ -106,9 +203,9 @@ function bmiResetResult() {
 function bmiCalculator(system, measures) {
   if (system === "Imperial") {
     const totalHeightIn = measures.ft * 12 + measures.in;
-    const heightCm = totalHeightIn * 2.54;
     const weightKg = measures.st * 6.35029 + measures.lbs * 0.453592;
-    const BMI = (weightKg / (heightCm * 0.0254) ** 2).toFixed(1);
+    const heightM = totalHeightIn * 0.0254;
+    const BMI = (weightKg / heightM ** 2).toFixed(1);
     return BMI;
   } else {
     const BMI = (measures.kg / (measures.cm / 100) ** 2).toFixed(1);
@@ -118,18 +215,18 @@ function bmiCalculator(system, measures) {
 
 function calculateWeightRange(system, measures) {
   if (system === "Imperial") {
-    const totalHeightIn = measures.ft * 12 + measures.in;
-    const weightLbsMin = 100 + (5 * totalHeightIn - 600) * 0.115;
-    const weightLbsMax = 106 + (6 * totalHeightIn - 600) * 0.115;
-    const weightStMin = weightLbsMin / 14;
-    const weightStMax = weightLbsMax / 14;
-    const lowerLimit = `${weightStMin.toFixed(0)}st ${weightLbsMin.toFixed(
-      0
-    )}lbs`;
-    const maximumLimit = `${weightStMax.toFixed(0)}st ${weightLbsMax.toFixed(
-      0
-    )}lbs`;
-    const weightRange = `${lowerLimit} - ${maximumLimit}`;
+    const heightTotal = measures.ft * 12 + measures.in;
+    const minWeight =
+      Math.round(((18.5 * (heightTotal / 39.37) ** 2) / 0.45359237) * 10) / 10;
+    const maxWeight =
+      Math.round(((24.9 * (heightTotal / 39.37) ** 2) / 0.45359237) * 10) / 10;
+    const minSt = Math.floor(minWeight / 14);
+    const minLb = Math.floor((minWeight % 14) * 10) / 10;
+    const maxSt = Math.floor(maxWeight / 14);
+    const maxLb = Math.floor((maxWeight % 14) * 10) / 10;
+    const lowerLimit = `${minSt}st ${minLb.toFixed(0) - 1}lbs`;
+    const upperLimit = `${maxSt}st ${maxLb.toFixed(0) - 1}lbs`;
+    const weightRange = `${lowerLimit} - ${upperLimit}`;
     return weightRange;
   } else {
     const lowerLimit = (
@@ -138,13 +235,13 @@ function calculateWeightRange(system, measures) {
       (measures.cm - 150) / 2.5 -
       7.7
     ).toFixed(1);
-    const maximumLimit = (
+    const upperLimit = (
       measures.cm -
       100 -
       (measures.cm - 150) / 4 +
       8.9
     ).toFixed(1);
-    const weightRange = `${lowerLimit}kgs - ${maximumLimit}kgs.`;
+    const weightRange = `${lowerLimit}kgs - ${upperLimit}kgs.`;
     return weightRange;
   }
 }
@@ -200,13 +297,15 @@ function changeSystemMeasure() {
         formImperial.classList.remove("opacity-0", "translate-x-full");
         formImperial.classList.add("opacity-100");
 
-        bmiResetResult();
+        bmiResultController("Imperial");
+        whatSystemNow = "Imperial";
       } else {
         formMetric.classList.remove("-translate-x-full", "opacity-0");
         formMetric.classList.add("translate-x-0", "opacity-100");
         formImperial.classList.add("translate-x-full", "opacity-0");
 
-        bmiResetResult();
+        bmiResultController("Metric");
+        whatSystemNow = "Metric";
       }
     });
   });
