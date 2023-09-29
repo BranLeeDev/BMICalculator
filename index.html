@@ -30,12 +30,12 @@
           alt="Image of a curved striped sphere"
         />
       </header>
-      <main class="flex w-full flex-col items-center gap-20">
+      <main class="flex w-full flex-col items-center gap-20 md:gap-36">
         <section
           class="relative z-10 grid w-full auto-rows-max grid-cols-1 justify-items-center gap-y-12"
         >
           <div
-            class="first-linear-gradient absolute -top-24 left-0 -z-10"
+            class="first-linear-gradient absolute -top-24 left-0 -z-10 md:-top-28"
           ></div>
           <div class="col-span-full row-span-3 flex w-11/12 flex-col gap-6">
             <h2 class="text-center text-5xl font-semibold text-second">
@@ -49,14 +49,20 @@
             </p>
           </div>
           <div
-            class="col-span-full flex w-11/12 flex-col gap-8 rounded-2xl bg-fifth p-6 shadow-3xl"
+            class="col-span-full flex w-11/12 flex-col gap-6 rounded-2xl bg-fifth p-6 shadow-3xl md:gap-8"
           >
-            <article class="flex flex-col gap-6">
+            <article class="flex flex-col gap-6 md:gap-8">
               <h3 class="text-2xl font-semibold text-second">
                 Enter your details below
               </h3>
-              <form class="relative flex flex-col gap-6" autocomplete="off">
-                <div class="flex justify-between">
+              <form
+                id="form-calculator"
+                class="relative flex flex-col gap-6"
+                autocomplete="off"
+              >
+                <div
+                  class="flex justify-between md:grid md:grid-cols-2 md:justify-items-start"
+                >
                   <div class="flex flex-row-reverse items-center gap-4">
                     <label for="Metric">Metric</label>
                     <input
@@ -81,7 +87,7 @@
                 </div>
                 <div
                   id="form-metric"
-                  class="flex flex-col gap-6 transition-all duration-300 ease-in-out"
+                  class="flex flex-col gap-6 transition-all duration-300 ease-in-out md:grid md:grid-cols-2"
                 >
                   <div class="flex flex-col gap-2">
                     <label class="text-sm text-third" for="height"
@@ -126,7 +132,7 @@
                 </div>
                 <div
                   id="form-imperial"
-                  class="absolute top-14 flex translate-x-full flex-col gap-6 opacity-0 transition-all duration-300 ease-in-out"
+                  class="absolute top-14 flex translate-x-full flex-col gap-6 opacity-0 transition-all duration-300 ease-in-out md:relative md:top-0 md:hidden md:translate-x-0"
                 >
                   <div class="flex flex-col gap-2">
                     <label class="text-sm text-third" for="feet">Height</label>
@@ -205,7 +211,7 @@
             </article>
             <article
               id="result-bmi"
-              class="background-result-bmi flex flex-col gap-4 rounded-2xl p-8"
+              class="background-result-bmi grid auto-rows-max gap-y-4 rounded-2xl p-8 md:items-center md:rounded-l-[250rem] md:rounded-br-full md:rounded-tr-full"
             >
               <div class="flex flex-col gap-2">
                 <h3 class="text-2xl font-semibold text-fifth">Welcome!</h3>
@@ -218,16 +224,20 @@
             </article>
           </div>
         </section>
-        <section class="grid w-full justify-items-center gap-y-12">
-          <figure class="w-full">
-            <img
-              src="/src/images/image-man-eating.webp"
-              alt="Young person enjoying sushi with two chopsticks."
-              loading="lazy"
-            />
-          </figure>
-          <div class="flex w-11/12 flex-col gap-32">
-            <div class="flex flex-col gap-8">
+        <section
+          class="grid w-full justify-items-center gap-y-12 md:max-w-[47.7813rem] md:gap-y-40"
+        >
+          <div
+            class="grid w-full auto-rows-max justify-items-center gap-12 md:grid-cols-2"
+          >
+            <figure class="w-full max-w-[30rem] md:relative md:-left-12">
+              <img
+                src="/src/images/image-man-eating.webp"
+                alt="Young person enjoying sushi with two chopsticks."
+                loading="lazy"
+              />
+            </figure>
+            <div class="flex w-11/12 flex-col gap-8">
               <h2 class="text-3xl font-semibold text-second">
                 What your BMI result means
               </h2>
@@ -241,79 +251,96 @@
                 about 30 minutes daily for five days a week.
               </p>
             </div>
+          </div>
+          <div class="flex w-11/12 flex-col">
             <ul class="flex w-full flex-col gap-10">
               <li>
-                <article class="card-result-means">
+                <article class="flex flex-col gap-8 md:flex-row md:gap-10">
                   <img
-                    class="col-span-full"
+                    class="h-16 w-16"
                     src="/src/images/icon-eating.svg"
                     alt="Pick bowl"
                     loading="lazy"
                   />
-                  <h3
-                    class="col-span-full mt-2 text-2xl font-semibold text-second"
-                  >
-                    Healthy eating
-                  </h3>
-                  <p class="col-span-full text-base font-normal text-third">
-                    Healthy eating promotes weight control, disease prevention,
-                    better digestion, immunity, mental clarity, and mood.
-                  </p>
+                  <div class="flex flex-col gap-6">
+                    <h3 class="text-2xl font-semibold text-second">
+                      Healthy eating
+                    </h3>
+                    <p
+                      class="text-base font-normal text-third md:max-w-[36.4944rem]"
+                    >
+                      Healthy eating promotes weight control, disease
+                      prevention, better digestion, immunity, mental clarity,
+                      and mood.
+                    </p>
+                  </div>
                 </article>
               </li>
               <li>
-                <article class="card-result-means">
+                <article class="flex flex-col gap-8 md:flex-row md:gap-10">
                   <img
+                    class="h-16 w-16"
                     src="/src/images/icon-exercise.svg"
                     alt="Orange dumbbells"
                     loading="lazy"
                   />
-                  <h3
-                    class="col-span-full mt-2 text-2xl font-semibold text-second"
-                  >
-                    Regular exercise
-                  </h3>
-                  <p class="col-span-full text-base font-normal text-third">
-                    Exercise improves fitness, aids weight control, elevates
-                    mood, and reduces disease risk, fostering wellness and
-                    longevity.
-                  </p>
+                  <div class="flex flex-col gap-6">
+                    <h3 class="text-2xl font-semibold text-second">
+                      Regular exercise
+                    </h3>
+                    <p
+                      class="text-base font-normal text-third md:max-w-[36.4944rem]"
+                    >
+                      Exercise improves fitness, aids weight control, elevates
+                      mood, and reduces disease risk, fostering wellness and
+                      longevity.
+                    </p>
+                  </div>
                 </article>
               </li>
               <li>
-                <article class="card-result-means">
+                <article class="flex flex-col gap-8 md:flex-row md:gap-10">
                   <img
+                    class="h-16 w-16"
                     src="/src/images/icon-sleep.svg"
                     alt="Green moon"
                     loading="lazy"
                   />
-                  <h3
-                    class="col-span-full mt-2 text-2xl font-semibold text-second"
-                  >
-                    Adequate sleep
-                  </h3>
-                  <p class="col-span-full text-base font-normal text-third">
-                    Sleep enhances mental clarity, emotional stability, and
-                    physical wellness, promoting overall restoration and
-                    rejuvenation.
-                  </p>
+                  <div class="flex flex-col gap-6">
+                    <h3 class="text-2xl font-semibold text-second">
+                      Adequate sleep
+                    </h3>
+                    <p
+                      class="text-base font-normal text-third md:max-w-[36.4944rem]"
+                    >
+                      Sleep enhances mental clarity, emotional stability, and
+                      physical wellness, promoting overall restoration and
+                      rejuvenation.
+                    </p>
+                  </div>
                 </article>
               </li>
             </ul>
           </div>
         </section>
-        <section class="mt-10 grid w-11/12 gap-y-4">
-          <h2 class="text-center text-3xl font-semibold text-second">
+        <section
+          class="mt-10 grid w-11/12 gap-y-4 md:max-w-[47.7813rem] md:grid-cols-12 md:grid-rows-[12] md:gap-x-4"
+        >
+          <h2
+            class="text-center text-3xl font-semibold text-second md:col-span-full md:mb-4"
+          >
             Limitations of BMI
           </h2>
-          <p class="text-center text-base font-normal text-third">
+          <p
+            class="text-center text-base font-normal text-third md:col-span-full md:mb-10"
+          >
             Although BMI is often a practical indicator of healthy weight, it is
             not suited for every person. Specific groups should carefully
             consider their BMI outcomes, and in certain cases, the measurement
             may not be beneficial to use.
           </p>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-1 md:col-end-7"
           >
             <h3
               class="flex items-center gap-4 text-xl font-semibold text-second"
@@ -331,7 +358,7 @@
             </p>
           </article>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-7 md:col-end-13"
           >
             <h3
               class="flex items-center gap-4 text-xl font-semibold text-second"
@@ -348,7 +375,7 @@
             </p>
           </article>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-1 md:col-end-7"
           >
             <h3
               class="flex items-center gap-4 text-xl font-semibold text-second"
@@ -365,7 +392,7 @@
             </p>
           </article>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-7 md:col-end-13"
           >
             <h3
               class="flex items-center gap-4 text-xl font-semibold text-second"
@@ -383,7 +410,7 @@
             </p>
           </article>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-4 md:col-end-10"
           >
             <h3
               class="flex items-center gap-4 text-xl font-semibold text-second"

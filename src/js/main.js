@@ -137,11 +137,12 @@ function bmiResultController(system) {
 
 function printResultBmi(BMI) {
   resultBMI.classList.remove("gap-4");
-  resultBMI.classList.add("gap-6");
+  resultBMI.classList.add("gap-6", "md:grid", "md:grid-cols-2");
   resultBMI.firstElementChild.firstElementChild.textContent = "Your BMI is...";
   resultBMI.firstElementChild.firstElementChild.classList.remove("text-2xl");
   resultBMI.firstElementChild.firstElementChild.classList.add("text-base");
   resultBMI.firstElementChild.lastElementChild.textContent = BMI;
+  resultBMI.lastElementChild.classList.toggle("md:max-w-[17rem]");
 }
 
 function standardInputTextContent(currentValue, lengthInput, event) {
@@ -186,11 +187,13 @@ function minLengthCustomizer(event, index, lengthInput) {
 
 function bmiResetResult() {
   resultBMI.classList.remove("gap-6");
+  resultBMI.classList.remove("md:grid-cols-2");
   resultBMI.classList.add("gap-4");
   resultBMI.firstElementChild.firstElementChild.textContent = "Welcome!";
   resultBMI.firstElementChild.firstElementChild.classList.remove("text-base");
   resultBMI.firstElementChild.firstElementChild.classList.add("text-2xl");
   resultBMI.firstElementChild.lastElementChild.textContent = "";
+  resultBMI.lastElementChild.classList.remove("md:max-w-[17rem]");
 
   resultBMI.lastElementChild.textContent =
     "Enter your height and weight and you'll see your BMI result here";
@@ -294,14 +297,20 @@ function changeSystemMeasure() {
       const currentValue = e.target.value;
       if (currentValue === "Imperial") {
         formMetric.classList.add("-translate-x-full", "opacity-0");
-        formImperial.classList.remove("opacity-0", "translate-x-full");
+        formMetric.classList.add("md:hidden");
         formImperial.classList.add("opacity-100");
+        formImperial.classList.add("md:relative");
+        formImperial.classList.add("md:top-0");
+        formImperial.classList.remove("opacity-0", "translate-x-full");
+        formImperial.classList.remove("md:hidden");
 
         bmiResultController("Imperial");
         whatSystemNow = "Imperial";
       } else {
         formMetric.classList.remove("-translate-x-full", "opacity-0");
         formMetric.classList.add("translate-x-0", "opacity-100");
+        formMetric.classList.remove("md:hidden");
+        formImperial.classList.add("md:hidden");
         formImperial.classList.add("translate-x-full", "opacity-0");
 
         bmiResultController("Metric");
@@ -315,5 +324,7 @@ function main() {
   validateInputContent();
   changeSystemMeasure();
 }
+
+function mediaQuery() {}
 
 window.addEventListener("load", main);
