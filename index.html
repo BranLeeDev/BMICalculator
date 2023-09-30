@@ -20,9 +20,11 @@
   </head>
   <body>
     <div
-      class="flex h-max min-h-[20rem] w-full min-w-[20rem] flex-col items-center gap-6 overflow-x-hidden pb-24 pt-8"
+      class="flex h-max min-h-[20rem] w-full min-w-[20rem] flex-col items-center gap-6 overflow-x-hidden pb-24 pt-8 2xl:gap-20 2xl:pt-20"
     >
-      <header class="flex w-full justify-center">
+      <header
+        class="flex w-full justify-center 2xl:w-11/12 2xl:max-w-[106.25rem] 2xl:justify-start"
+      >
         <h1 class="hidden">BMI Calculator</h1>
         <img
           class="h-10 w-10 md:h-12 md:w-12 2xl:h-16 2xl:w-16"
@@ -32,16 +34,22 @@
       </header>
       <main class="flex w-full flex-col items-center gap-20 md:gap-36">
         <section
-          class="relative z-10 grid w-full auto-rows-max grid-cols-1 justify-items-center gap-y-12"
+          class="relative z-10 grid w-full grid-cols-1 justify-items-center gap-y-12 2xl:w-11/12 2xl:max-w-[106.25rem] 2xl:grid-cols-2 2xl:items-center"
         >
           <div
-            class="first-linear-gradient absolute -top-24 left-0 -z-10 md:-top-28"
+            class="first-linear-gradient absolute -top-24 left-0 -z-10 md:-top-28 2xl:-left-[30%] 2xl:-top-72 2xl:col-start-1 2xl:h-[60rem]"
           ></div>
-          <div class="col-span-full row-span-3 flex w-11/12 flex-col gap-6">
-            <h2 class="text-center text-5xl font-semibold text-second">
+          <div
+            class="row-span-3 flex w-11/12 flex-col gap-6 md:max-w-[47.8956rem] 2xl:col-start-1 2xl:max-w-[33rem] 2xl:justify-self-start"
+          >
+            <h2
+              class="text-center text-5xl font-semibold text-second 2xl:text-start 2xl:text-[4.0625rem]"
+            >
               Body Mass Index Calculator
             </h2>
-            <p class="text-center text-base font-normal text-third">
+            <p
+              class="text-center text-base font-normal text-third 2xl:text-start 2xl:text-lg"
+            >
               Better understand your weight in relation to your height using our
               body mass index (BM) calculator. While BMI is not the sole
               determinant of a healthy weight, it offers a valuable starting
@@ -49,22 +57,28 @@
             </p>
           </div>
           <div
-            class="col-span-full flex w-11/12 flex-col gap-6 rounded-2xl bg-fifth p-6 shadow-3xl md:gap-8"
+            class="flex w-11/12 flex-col gap-6 rounded-2xl bg-fifth p-6 shadow-3xl md:max-w-[47.8956rem] md:gap-8 2xl:relative 2xl:top-12 2xl:col-start-2 2xl:max-w-[40rem]"
           >
-            <article class="flex flex-col gap-6 md:gap-8">
-              <h3 class="text-2xl font-semibold text-second">
+            <article class="flex flex-col gap-6 md:gap-8 2xl:gap-8">
+              <h3 class="text-2xl font-semibold text-second 2xl:text-3xl">
                 Enter your details below
               </h3>
               <form
                 id="form-calculator"
-                class="relative flex flex-col gap-6"
+                class="relative flex flex-col gap-6 2xl:gap-8"
                 autocomplete="off"
               >
                 <div
                   class="flex justify-between md:grid md:grid-cols-2 md:justify-items-start"
                 >
-                  <div class="flex flex-row-reverse items-center gap-4">
-                    <label for="Metric">Metric</label>
+                  <div
+                    class="flex flex-row-reverse items-center gap-4 2xl:gap-6"
+                  >
+                    <label
+                      for="Metric"
+                      class="text-base font-semibold text-second 2xl:text-lg"
+                      >Metric</label
+                    >
                     <input
                       class="radio-button border-fourth bg-fifth checked:bg-first 2xl:hover:border-first"
                       type="radio"
@@ -75,7 +89,11 @@
                     />
                   </div>
                   <div class="flex flex-row-reverse items-center gap-4">
-                    <label for="Imperial">Imperial</label>
+                    <label
+                      for="Imperial"
+                      class="text-base font-semibold text-second 2xl:text-lg"
+                      >Imperial</label
+                    >
                     <input
                       class="radio-button border-fourth bg-fifth checked:bg-first 2xl:hover:border-first"
                       type="radio"
@@ -87,15 +105,15 @@
                 </div>
                 <div
                   id="form-metric"
-                  class="flex flex-col gap-6 transition-all duration-300 ease-in-out md:grid md:grid-cols-2"
+                  class="flex flex-col gap-6 transition-all duration-300 ease-in-out md:grid md:grid-cols-2 2xl:gap-8"
                 >
-                  <div class="flex flex-col gap-2">
-                    <label class="text-sm text-third" for="height"
+                  <div class="flex flex-col gap-2 2xl:gap-4">
+                    <label class="text-sm text-third 2xl:text-base" for="height"
                       >Height</label
                     >
                     <div class="relative flex items-center">
                       <input
-                        class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                        class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none 2xl:text-3xl 2xl:placeholder:text-3xl"
                         placeholder="0"
                         maxlength="3"
                         type="text"
@@ -103,19 +121,19 @@
                         name="height"
                       />
                       <label
-                        class="absolute right-6 text-2xl font-semibold text-first"
+                        class="absolute right-6 text-2xl font-semibold text-first 2xl:right-7 2xl:text-3xl"
                         for="height"
                         >cm</label
                       >
                     </div>
                   </div>
-                  <div class="relative flex flex-col gap-2">
-                    <label class="text-sm text-third" for="weight"
+                  <div class="relative flex flex-col gap-2 2xl:gap-4">
+                    <label class="text-sm text-third 2xl:text-base" for="weight"
                       >Weight</label
                     >
                     <div class="flex items-center">
                       <input
-                        class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second outline-none placeholder:text-2xl placeholder:text-input-number focus:border-first"
+                        class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second outline-none placeholder:text-2xl placeholder:text-input-number focus:border-first 2xl:text-3xl 2xl:placeholder:text-3xl"
                         type="text"
                         maxlength="3"
                         placeholder="0"
@@ -123,7 +141,7 @@
                         name="weight"
                       />
                       <label
-                        class="absolute right-6 text-2xl font-semibold text-first"
+                        class="absolute right-6 text-2xl font-semibold text-first 2xl:right-7 2xl:text-3xl"
                         for="weight"
                         >kg</label
                       >
@@ -132,14 +150,16 @@
                 </div>
                 <div
                   id="form-imperial"
-                  class="absolute top-14 flex translate-x-full flex-col gap-6 opacity-0 transition-all duration-300 ease-in-out md:relative md:top-0 md:hidden md:translate-x-0"
+                  class="absolute top-14 flex translate-x-full flex-col gap-6 opacity-0 transition-all duration-300 ease-in-out md:relative md:top-0 md:hidden md:translate-x-0 2xl:gap-8"
                 >
-                  <div class="flex flex-col gap-2">
-                    <label class="text-sm text-third" for="feet">Height</label>
-                    <div class="grid grid-cols-2 gap-x-4">
+                  <div class="flex flex-col gap-2 2xl:gap-4">
+                    <label class="text-sm text-third 2xl:text-base" for="feet"
+                      >Height</label
+                    >
+                    <div class="grid grid-cols-2 gap-x-4 2xl:gap-x-6">
                       <div class="relative flex items-center">
                         <input
-                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none 2xl:text-3xl 2xl:placeholder:text-3xl"
                           placeholder="0"
                           maxlength="1"
                           type="text"
@@ -147,14 +167,14 @@
                           name="feet"
                         />
                         <label
-                          class="absolute right-6 text-2xl font-semibold text-first"
+                          class="absolute right-6 text-2xl font-semibold text-first 2xl:text-3xl"
                           for="feet"
                           >ft</label
                         >
                       </div>
                       <div class="relative flex items-center">
                         <input
-                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none 2xl:text-3xl 2xl:placeholder:text-3xl"
                           placeholder="0"
                           maxlength="2"
                           type="text"
@@ -162,21 +182,21 @@
                           name="inches"
                         />
                         <label
-                          class="absolute right-6 text-2xl font-semibold text-first"
+                          class="absolute right-6 text-2xl font-semibold text-first 2xl:right-7 2xl:text-3xl"
                           for="inches"
                           >in</label
                         >
                       </div>
                     </div>
                   </div>
-                  <div class="relative flex flex-col gap-2">
-                    <label class="text-sm text-third" for="stones"
+                  <div class="relative flex flex-col gap-2 2xl:gap-4">
+                    <label class="text-sm text-third 2xl:text-base" for="stones"
                       >Weight</label
                     >
-                    <div class="grid grid-cols-2 gap-x-4">
+                    <div class="grid grid-cols-2 gap-x-4 2xl:gap-x-6">
                       <div class="relative flex items-center">
                         <input
-                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none 2xl:text-3xl 2xl:placeholder:text-3xl"
                           placeholder="0"
                           maxlength="2"
                           type="text"
@@ -184,14 +204,14 @@
                           name="stones"
                         />
                         <label
-                          class="absolute right-6 text-2xl font-semibold text-first"
+                          class="absolute right-6 text-2xl font-semibold text-first 2xl:right-7 2xl:text-3xl"
                           for="stones"
                           >st</label
                         >
                       </div>
                       <div class="relative flex items-center">
                         <input
-                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none"
+                          class="w-full rounded-xl border-2 border-fourth px-6 py-5 text-2xl font-semibold text-second placeholder:text-2xl placeholder:text-input-number focus:border-first focus:outline-none 2xl:text-3xl 2xl:placeholder:text-3xl"
                           placeholder="0"
                           maxlength="3"
                           type="text"
@@ -199,7 +219,7 @@
                           name="pounds"
                         />
                         <label
-                          class="absolute right-6 text-2xl font-semibold text-first"
+                          class="absolute right-6 text-2xl font-semibold text-first 2xl:right-7 2xl:text-3xl"
                           for="pounds"
                           >lbs</label
                         >
@@ -211,13 +231,17 @@
             </article>
             <article
               id="result-bmi"
-              class="background-result-bmi grid auto-rows-max gap-y-4 rounded-2xl p-8 md:items-center md:rounded-l-[250rem] md:rounded-br-full md:rounded-tr-full"
+              class="background-result-bmi grid auto-rows-max gap-y-4 rounded-2xl p-8 md:items-center md:rounded-l-[250rem] md:rounded-br-full md:rounded-tr-full 2xl:gap-y-6"
             >
-              <div class="flex flex-col gap-2">
-                <h3 class="text-2xl font-semibold text-fifth">Welcome!</h3>
-                <span class="text-5xl font-semibold text-fifth"></span>
+              <div class="flex flex-col gap-2 2xl:gap-4">
+                <h3 class="text-2xl font-semibold text-fifth 2xl:text-4xl">
+                  Welcome!
+                </h3>
+                <span
+                  class="text-5xl font-semibold text-fifth 2xl:text-6xl"
+                ></span>
               </div>
-              <p class="text-sm font-normal text-fifth">
+              <p class="text-sm font-normal text-fifth 2xl:text-base">
                 Enter your height and weight and you'll see your BMI result here
                 <span></span>
               </p>
@@ -225,23 +249,27 @@
           </div>
         </section>
         <section
-          class="grid w-full justify-items-center gap-y-12 md:max-w-[47.7813rem] md:gap-y-40"
+          class="grid w-full justify-items-center gap-y-12 md:max-w-[47.7813rem] md:gap-y-40 2xl:mt-40 2xl:max-w-[106.25rem] 2xl:gap-y-64"
         >
           <div
-            class="grid w-full auto-rows-max justify-items-center gap-12 md:grid-cols-2"
+            class="grid w-full auto-rows-max justify-items-center gap-12 md:grid-cols-2 2xl:items-center"
           >
-            <figure class="w-full max-w-[30rem] md:relative md:-left-12">
+            <figure
+              class="w-full max-w-[30rem] md:relative md:-left-12 2xl:max-w-[40rem]"
+            >
               <img
                 src="/src/images/image-man-eating.webp"
                 alt="Young person enjoying sushi with two chopsticks."
                 loading="lazy"
               />
             </figure>
-            <div class="flex w-11/12 flex-col gap-8">
-              <h2 class="text-3xl font-semibold text-second">
+            <div
+              class="flex w-11/12 flex-col gap-8 2xl:relative 2xl:top-16 2xl:max-w-[35rem]"
+            >
+              <h2 class="text-3xl font-semibold text-second 2xl:text-5xl">
                 What your BMI result means
               </h2>
-              <p class="text-base font-normal text-third">
+              <p class="text-base font-normal text-third 2xl:text-lg">
                 A BMI range of 18.5 to 24.9 is considered a 'healthy weight.'
                 Maintaining a healthy weight may lower your chances of
                 experiencing health issues later on, such as obesity and type 2
@@ -253,9 +281,11 @@
             </div>
           </div>
           <div class="flex w-11/12 flex-col">
-            <ul class="flex w-full flex-col gap-10">
+            <ul class="flex w-full flex-col gap-10 2xl:flex-row">
               <li>
-                <article class="flex flex-col gap-8 md:flex-row md:gap-10">
+                <article
+                  class="flex flex-col gap-8 md:flex-row md:gap-10 2xl:flex-col 2xl:gap-10"
+                >
                   <img
                     class="h-16 w-16"
                     src="/src/images/icon-eating.svg"
@@ -263,11 +293,11 @@
                     loading="lazy"
                   />
                   <div class="flex flex-col gap-6">
-                    <h3 class="text-2xl font-semibold text-second">
+                    <h3 class="text-2xl font-semibold text-second 2xl:text-3xl">
                       Healthy eating
                     </h3>
                     <p
-                      class="text-base font-normal text-third md:max-w-[36.4944rem]"
+                      class="text-base font-normal text-third md:max-w-[36.4944rem] 2xl:text-lg"
                     >
                       Healthy eating promotes weight control, disease
                       prevention, better digestion, immunity, mental clarity,
@@ -277,7 +307,9 @@
                 </article>
               </li>
               <li>
-                <article class="flex flex-col gap-8 md:flex-row md:gap-10">
+                <article
+                  class="flex flex-col gap-8 md:flex-row md:gap-10 2xl:flex-col 2xl:gap-10"
+                >
                   <img
                     class="h-16 w-16"
                     src="/src/images/icon-exercise.svg"
@@ -285,11 +317,11 @@
                     loading="lazy"
                   />
                   <div class="flex flex-col gap-6">
-                    <h3 class="text-2xl font-semibold text-second">
+                    <h3 class="text-2xl font-semibold text-second 2xl:text-3xl">
                       Regular exercise
                     </h3>
                     <p
-                      class="text-base font-normal text-third md:max-w-[36.4944rem]"
+                      class="text-base font-normal text-third md:max-w-[36.4944rem] 2xl:text-lg"
                     >
                       Exercise improves fitness, aids weight control, elevates
                       mood, and reduces disease risk, fostering wellness and
@@ -299,7 +331,9 @@
                 </article>
               </li>
               <li>
-                <article class="flex flex-col gap-8 md:flex-row md:gap-10">
+                <article
+                  class="flex flex-col gap-8 md:flex-row md:gap-10 2xl:flex-col 2xl:gap-10"
+                >
                   <img
                     class="h-16 w-16"
                     src="/src/images/icon-sleep.svg"
@@ -307,11 +341,11 @@
                     loading="lazy"
                   />
                   <div class="flex flex-col gap-6">
-                    <h3 class="text-2xl font-semibold text-second">
+                    <h3 class="text-2xl font-semibold text-second 2xl:text-3xl">
                       Adequate sleep
                     </h3>
                     <p
-                      class="text-base font-normal text-third md:max-w-[36.4944rem]"
+                      class="text-base font-normal text-third md:max-w-[36.4944rem] 2xl:text-lg"
                     >
                       Sleep enhances mental clarity, emotional stability, and
                       physical wellness, promoting overall restoration and
@@ -324,15 +358,15 @@
           </div>
         </section>
         <section
-          class="mt-10 grid w-11/12 gap-y-4 md:max-w-[47.7813rem] md:grid-cols-12 md:grid-rows-[12] md:gap-x-4"
+          class="mt-10 grid w-11/12 gap-y-4 md:max-w-[47.7813rem] md:grid-cols-12 md:grid-rows-[12] md:gap-x-4 2xl:max-w-[106.25rem] 2xl:gap-12"
         >
           <h2
-            class="text-center text-3xl font-semibold text-second md:col-span-full md:mb-4"
+            class="text-center text-3xl font-semibold text-second md:col-span-full md:mb-4 2xl:col-start-1 2xl:col-end-5 2xl:text-start 2xl:text-5xl"
           >
             Limitations of BMI
           </h2>
           <p
-            class="text-center text-base font-normal text-third md:col-span-full md:mb-10"
+            class="text-center text-base font-normal text-third md:col-span-full md:mb-10 2xl:relative 2xl:-top-12 2xl:col-start-1 2xl:col-end-5 2xl:text-start 2xl:text-lg"
           >
             Although BMI is often a practical indicator of healthy weight, it is
             not suited for every person. Specific groups should carefully
@@ -340,59 +374,62 @@
             may not be beneficial to use.
           </p>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-1 md:col-end-7"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-1 md:col-end-7 2xl:col-start-8 2xl:col-end-11"
           >
             <h3
-              class="flex items-center gap-4 text-xl font-semibold text-second"
+              class="flex items-center gap-4 text-xl font-semibold text-second 2xl:text-2xl"
             >
               <img
                 src="/src/images/icon-gender.svg"
                 alt="Icon that represents the gender"
                 loading="lazy"
+                class="h-8 w-8 2xl:h-9 2xl:w-9"
               />Gender
             </h3>
-            <p class="font-normal text-third">
+            <p class="text-base font-normal text-third 2xl:text-lg">
               The development and body fat composition of girls and boys vary
               with age. Consequently, a child's age and gender are considered
               when evaluating their BMI.
             </p>
           </article>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-7 md:col-end-13"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-7 md:col-end-13 2xl:col-start-6 2xl:col-end-9"
           >
             <h3
-              class="flex items-center gap-4 text-xl font-semibold text-second"
+              class="flex items-center gap-4 text-xl font-semibold text-second 2xl:text-2xl"
             >
               <img
                 src="/src/images/icon-age.svg"
                 alt="Icon that represents the birthday"
                 loading="lazy"
+                class="h-8 w-8 2xl:h-9 2xl:w-9"
               />Age
             </h3>
-            <p class="font-normal text-third">
+            <p class="text-base font-normal text-third 2xl:text-lg">
               In aging individuals, increased body fat and muscle loss may cause
               BMI to underestimate body fat content.
             </p>
           </article>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-1 md:col-end-7"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-1 md:col-end-7 2xl:col-start-9 2xl:col-end-12"
           >
             <h3
-              class="flex items-center gap-4 text-xl font-semibold text-second"
+              class="flex items-center gap-4 text-xl font-semibold text-second 2xl:text-2xl"
             >
               <img
                 src="/src/images/icon-muscle.svg"
                 alt="Icon that represents the muscle"
                 loading="lazy"
+                class="h-8 w-8 2xl:h-9 2xl:w-9"
               />Muscle
             </h3>
-            <p class="font-normal text-third">
+            <p class="text-base font-normal text-third 2xl:text-lg">
               BMI may misclassify muscular individuals as overweight or obese,
               as it doesn't differentiate muscle from fat.
             </p>
           </article>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-7 md:col-end-13"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-7 md:col-end-13 2xl:col-start-4 2xl:col-end-7"
           >
             <h3
               class="flex items-center gap-4 text-xl font-semibold text-second"
@@ -401,27 +438,29 @@
                 src="/src/images/icon-pregnancy.svg"
                 alt="Icon that represents the pregnancy"
                 loading="lazy"
+                class="h-8 w-8 2xl:h-9 2xl:w-9"
               />Pregnancy
             </h3>
-            <p class="font-normal text-third">
+            <p class="text-base font-normal text-third 2xl:text-lg">
               Expectant mothers experience weight gain due to their growing
               baby. Maintaining a healthy pre-pregnancy BMI is advisable to
               minimise health risks for both mother and child.
             </p>
           </article>
           <article
-            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-4 md:col-end-10"
+            class="flex flex-col gap-4 rounded-2xl bg-fifth p-6 shadow-3xl md:col-start-4 md:col-end-10 2xl:col-start-7 2xl:col-end-10"
           >
             <h3
-              class="flex items-center gap-4 text-xl font-semibold text-second"
+              class="flex items-center gap-4 text-xl font-semibold text-second 2xl:text-lg"
             >
               <img
                 src="/src/images/icon-race.svg"
                 alt="Icon that represents the race"
                 loading="lazy"
+                class="h-8 w-8 2xl:h-9 2xl:w-9"
               />Race
             </h3>
-            <p class="font-normal text-third">
+            <p class="text-base font-normal text-third 2xl:text-lg">
               Certain health concerns may affect individuals of some Black and
               Asian origins at lower BMIs than others. To learn more, it is
               advised to discuss this with your GP or practice nurse.

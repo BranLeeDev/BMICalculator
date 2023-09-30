@@ -139,8 +139,14 @@ function printResultBmi(BMI) {
   resultBMI.classList.remove("gap-4");
   resultBMI.classList.add("gap-6", "md:grid", "md:grid-cols-2");
   resultBMI.firstElementChild.firstElementChild.textContent = "Your BMI is...";
-  resultBMI.firstElementChild.firstElementChild.classList.remove("text-2xl");
-  resultBMI.firstElementChild.firstElementChild.classList.add("text-base");
+  resultBMI.firstElementChild.firstElementChild.classList.remove(
+    "text-2xl",
+    "2xl:text-4xl"
+  );
+  resultBMI.firstElementChild.firstElementChild.classList.add(
+    "text-base",
+    "2xl:text-lg"
+  );
   resultBMI.firstElementChild.lastElementChild.textContent = BMI;
   resultBMI.lastElementChild.classList.toggle("md:max-w-[17rem]");
 }
@@ -190,8 +196,14 @@ function bmiResetResult() {
   resultBMI.classList.remove("md:grid-cols-2");
   resultBMI.classList.add("gap-4");
   resultBMI.firstElementChild.firstElementChild.textContent = "Welcome!";
-  resultBMI.firstElementChild.firstElementChild.classList.remove("text-base");
-  resultBMI.firstElementChild.firstElementChild.classList.add("text-2xl");
+  resultBMI.firstElementChild.firstElementChild.classList.remove(
+    "text-base",
+    "2xl:text-lg"
+  );
+  resultBMI.firstElementChild.firstElementChild.classList.add(
+    "text-2xl",
+    "2xl:text-4xl"
+  );
   resultBMI.firstElementChild.lastElementChild.textContent = "";
   resultBMI.lastElementChild.classList.remove("md:max-w-[17rem]");
 
