@@ -44,4 +44,32 @@
   .background-result-bmi {
     background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
   }
+
+  .curved-arrow-right::before {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -25rem;
+    display: inline-block;
+    width: 10rem;
+    height: 15rem;
+    background-image: url("/src/images/pattern-curved-line-right.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .curved-arrow-left::before {
+    content: "";
+    position: absolute;
+    top: -18rem;
+    right: 5rem;
+    display: inline-block;
+    width: 10rem;
+    height: 15rem;
+    background-image: url("/src/images/pattern-curved-line-left.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
