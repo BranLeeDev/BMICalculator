@@ -30,6 +30,9 @@ También es accesible para personas con discapacidad.
 ## Autor
 
 [GitHub](https://github.com/BranLeeDev)
+
 [LinkedIn](https://www.linkedin.com/in/brandonaguero/)
+
 [Twitter](https://twitter.com/branleedev)
+
 [FrontendMentor](https://www.frontendmentor.io/profile/BranLeeDev)
