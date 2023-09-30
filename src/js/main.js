@@ -316,6 +316,10 @@ function changeSystemMeasure() {
         formImperial.classList.remove("opacity-0", "translate-x-full");
         formImperial.classList.remove("md:hidden");
 
+        inputsText.forEach((input, index) => {
+          input.setAttribute("tabindex", index + 1);
+        });
+
         bmiResultController("Imperial");
         whatSystemNow = "Imperial";
       } else {
@@ -324,6 +328,14 @@ function changeSystemMeasure() {
         formMetric.classList.remove("md:hidden");
         formImperial.classList.add("md:hidden");
         formImperial.classList.add("translate-x-full", "opacity-0");
+
+        inputsText.forEach((input, index) => {
+          if (index >= 2) {
+            input.setAttribute("tabindex", -1);
+            return;
+          }
+          input.setAttribute("tabindex", index + 1);
+        });
 
         bmiResultController("Metric");
         whatSystemNow = "Metric";
@@ -336,7 +348,5 @@ function main() {
   validateInputContent();
   changeSystemMeasure();
 }
-
-function mediaQuery() {}
 
 window.addEventListener("load", main);
